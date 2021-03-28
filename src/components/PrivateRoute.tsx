@@ -5,21 +5,19 @@ import { Routes } from "_config/routes";
 export const PrivateRoute: React.FC<RouteProps> = ({ component, ...rest }) => {
   const token = localStorage.getItem("superSecuredToken");
 
-  return (
-    <Route
-      {...rest}
-      render={(props) =>
-        token ? (
-          component
-        ) : (
-          <Redirect
-            to={{
-              pathname: Routes.LOGIN,
-              state: { from: props.location },
-            }}
-          />
-        )
-      }
-    />
-  );
+  const render = (Component: any) => (routeProps: RouteProps) => {
+    if (!Component) return null;
+    if (token) return <Component {...routeProps} />;
+
+    return (
+      <Redirect
+        to={{
+          pathname: Routes.LOGIN,
+          state: { from: routeProps.location },
+        }}
+      />
+    );
+  };
+
+  return <Route {...rest} render={render(component)} />;
 };

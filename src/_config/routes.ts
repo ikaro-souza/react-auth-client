@@ -7,3 +7,7 @@ export enum Routes {
   SINGUP = "/signup",
   SIGNOUT = "/signout",
 }
+
+export type LocationState = {
+  from: Location;
+};
