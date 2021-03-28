@@ -13,7 +13,6 @@ export const authReducer = (state = initialState, action: IAuthAction) => {
   switch (action.type) {
     case AuthActions.LOGIN_SUCCESS:
     case AuthActions.SIGNUP_SUCCESS:
-      localStorage.setItem("superSecuredToken", action.payload);
       return new AuthenticatedState(action.payload);
 
     case AuthActions.SINGOUT_SUCCESS:

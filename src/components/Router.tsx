@@ -6,6 +6,7 @@ import { Feature } from "_modules/feature/pages/Feature";
 import { PrivateRoute } from "./PrivateRoute";
 import { Routes } from "_config/routes";
 import { Login } from "_modules/auth/pages/Login";
+import { Signout } from "_modules/auth/pages/Signout";
 
 export const Router: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ export const Router: React.FC = () => {
         <Route path={Routes.LOGIN} component={Login} />
         <Route path={Routes.SINGUP} component={Signup} />
         <PrivateRoute path={Routes.FEATURE} component={Feature} />
+        <PrivateRoute path={Routes.SIGNOUT} component={Signout} />
       </Switch>
     </BrowserRouter>
   );

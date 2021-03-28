@@ -1,9 +1,10 @@
+import { useToken } from "hooks/useToken";
 import React from "react";
 import { Redirect, Route, RouteProps } from "react-router-dom";
 import { Routes } from "_config/routes";
 
 export const PrivateRoute: React.FC<RouteProps> = ({ component, ...rest }) => {
-  const token = localStorage.getItem("superSecuredToken");
+  const [token] = useToken();
 
   const render = (Component: any) => (routeProps: RouteProps) => {
     if (!Component) return null;
