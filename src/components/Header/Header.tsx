@@ -11,7 +11,7 @@ export const Header: React.FC = () => {
   return (
     <header className="header">
       <nav>
-        <Link to={Routes.HOME}>Redux Auth</Link>
+        <Link to={Routes.HOME}>Home</Link>
         {token && <Link to={Routes.FEATURE}>Nice feature</Link>}
         <Link to={Routes.LOGIN}>Login</Link>
         <Link to={Routes.SINGUP}>Sign up</Link>
